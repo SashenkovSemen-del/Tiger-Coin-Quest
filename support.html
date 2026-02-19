@@ -1,0 +1,410 @@
+<!-- support.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="description" content="Support page for Tiger Coin Quest. Contact the developer and find quick help." />
+  <title>Support — Tiger Coin Quest</title>
+
+  <style>
+    :root{
+      --bg:#050713;
+      --bg2:#091125;
+      --ink:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.14);
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.10);
+      --violet:#7C3AED;
+      --cyan:#22D3EE;
+      --amber:#F59E0B;
+      --green:#34D399;
+      --radius:22px;
+      --max:1040px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --shadow: 0 26px 90px rgba(0,0,0,.48);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; min-height:100%;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:
+        radial-gradient(900px 600px at 10% 0%, rgba(34,211,238,.20), transparent 55%),
+        radial-gradient(900px 600px at 90% 10%, rgba(124,58,237,.26), transparent 60%),
+        radial-gradient(800px 500px at 30% 110%, rgba(245,158,11,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+      overflow-x:hidden;
+    }
+
+    .top{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 18px 10px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+
+    .mark{
+      display:flex; gap:12px; align-items:center;
+      min-width:0;
+    }
+    .icon{
+      width:42px; height:42px; border-radius:16px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.55), transparent 60%),
+        linear-gradient(135deg, rgba(34,211,238,.85), rgba(124,58,237,.85));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 12px 46px rgba(34,211,238,.18);
+      position:relative;
+      overflow:hidden;
+    }
+    .icon:after{
+      content:"";
+      position:absolute; inset:-40%;
+      background: conic-gradient(from 210deg, rgba(255,255,255,.20), transparent 20%, rgba(245,158,11,.18), transparent 55%, rgba(255,255,255,.12));
+      animation: spin 12s linear infinite;
+      opacity:.7;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    h1{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.2px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .sub{
+      margin-top:2px;
+      color:var(--muted);
+      font-size:12px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .chip{
+      display:inline-flex; gap:8px; align-items:center;
+      font-family:var(--mono);
+      font-size:12px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
+      padding:9px 12px;
+      border-radius:999px;
+      max-width:100%;
+      overflow:hidden;
+      white-space:nowrap;
+      text-overflow:ellipsis;
+    }
+    .chip i{
+      width:8px; height:8px; border-radius:50%;
+      background:var(--green);
+      box-shadow:0 0 0 5px rgba(52,211,153,.12);
+      display:inline-block;
+      flex:0 0 auto;
+    }
+
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:10px 18px 44px;
+    }
+
+    .hero{
+      border-radius:var(--radius);
+      padding:20px 18px;
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 260px at 0% 0%, rgba(34,211,238,.18), transparent 60%),
+        radial-gradient(520px 260px at 100% 10%, rgba(124,58,237,.22), transparent 60%),
+        radial-gradient(520px 260px at 20% 110%, rgba(245,158,11,.12), transparent 60%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .hero > *{position:relative}
+    .kicker{
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+    }
+    .title{
+      margin:10px 0 8px;
+      font-size: clamp(26px, 4.6vw, 40px);
+      line-height:1.08;
+      letter-spacing:-.02em;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      line-height:1.6;
+      max-width:72ch;
+      font-size:16px;
+    }
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      gap:16px;
+      grid-template-columns: 1fr;
+    }
+    @media (min-width: 900px){
+      .grid{ grid-template-columns: 1fr 1fr; }
+    }
+
+    .card{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      overflow:hidden;
+      box-shadow: 0 18px 64px rgba(0,0,0,.35);
+    }
+    .hd{
+      padding:16px 16px 12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:10px;
+    }
+    .hd h2{ margin:0; font-size:16px; }
+    .tag{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.80);
+      white-space:nowrap;
+    }
+    .bd{
+      padding:14px 16px 16px;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+    }
+
+    .btns{
+      display:flex; flex-wrap:wrap; gap:10px;
+      margin-top:12px;
+    }
+    .btn{
+      display:inline-flex; gap:10px; align-items:center; justify-content:center;
+      padding:12px 14px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
+      background: linear-gradient(135deg, rgba(34,211,238,.18), rgba(124,58,237,.18));
+      color:rgba(255,255,255,.92);
+      text-decoration:none;
+      font-weight:600;
+      letter-spacing:.2px;
+      transition: transform .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.26); }
+    .btn.secondary{
+      background:rgba(255,255,255,.05);
+    }
+    .btn .mini{
+      font-family:var(--mono);
+      font-size:12px;
+      color:rgba(255,255,255,.72);
+      font-weight:500;
+    }
+
+    details{
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      border-radius:16px;
+      padding:12px 12px;
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      color:rgba(255,255,255,.88);
+      outline:none;
+    }
+    details p{ margin:10px 0 0; color:var(--muted); }
+
+    .field{
+      margin-top:10px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.12);
+      background:rgba(255,255,255,.04);
+      padding:12px 12px;
+    }
+    .field .k{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.62);
+    }
+    .field .v{
+      margin-top:6px;
+      color:rgba(255,255,255,.88);
+      overflow-wrap:anywhere;
+      font-size:14px;
+    }
+
+    a{color:rgba(34,211,238,.95); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    footer{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:16px 18px 28px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="top">
+    <div class="mark">
+      <div class="icon" aria-hidden="true"></div>
+      <div style="min-width:0">
+        <h1>Support — Tiger Coin Quest</h1>
+        <div class="sub">Developer: Sashenkov Semen</div>
+      </div>
+    </div>
+    <div class="chip" title="Primary support contact">
+      <i aria-hidden="true"></i>
+      <span style="overflow:hidden;text-overflow:ellipsis">SashenkovSemen@icloud.com</span>
+    </div>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="kicker">Help & contact</div>
+      <h2 class="title">Fast support, direct contact</h2>
+      <p class="lead">
+        If something doesn’t work as expected, I’m happy to help. Please email me with details,
+        and I’ll do my best to respond quickly.
+      </p>
+
+      <div class="btns" aria-label="Quick actions">
+        <a class="btn" href="mailto:SashenkovSemen@icloud.com?subject=Tiger%20Coin%20Quest%20Support&body=Hi%20Sashenkov%20Semen%2C%0A%0AI%20need%20help%20with%20Tiger%20Coin%20Quest.%0A%0ADevice%3A%20%0AiOS%20version%3A%20%0AApp%20version%3A%20%0AWhat%20happened%3A%20%0ASteps%20to%20reproduce%3A%20%0A%0AThanks!">
+          Email Support <span class="mini">mailto</span>
+        </a>
+        <a class="btn secondary" href="./privacy.html">Privacy Policy</a>
+        <a class="btn secondary" href="./marketing.html">Marketing Page</a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Support content">
+      <article class="card">
+        <div class="hd">
+          <h2>Before you email</h2>
+          <span class="tag">Checklist</span>
+        </div>
+        <div class="bd">
+          To solve issues faster, please include:
+          <ul>
+            <li>Device model and iOS version</li>
+            <li>App version (if visible)</li>
+            <li>What you expected vs. what happened</li>
+            <li>Steps to reproduce the issue</li>
+            <li>Screenshots (if possible)</li>
+          </ul>
+
+          <details>
+            <summary>Do you collect analytics or tracking data?</summary>
+            <p>
+              No. Tiger Coin Quest does not collect, store, or transmit personal data.
+              See the <a href="./privacy.html">Privacy Policy</a> for details.
+            </p>
+          </details>
+        </div>
+      </article>
+
+      <aside class="card">
+        <div class="hd">
+          <h2>App & developer info</h2>
+          <span class="tag">For Review</span>
+        </div>
+        <div class="bd">
+          <div class="field">
+            <div class="k">Application</div>
+            <div class="v">Tiger Coin Quest</div>
+          </div>
+          <div class="field">
+            <div class="k">Developer</div>
+            <div class="v">Sashenkov Semen</div>
+          </div>
+          <div class="field">
+            <div class="k">Support email</div>
+            <div class="v"><a href="mailto:SashenkovSemen@icloud.com">SashenkovSemen@icloud.com</a></div>
+          </div>
+          <div class="field">
+            <div class="k">Support scope</div>
+            <div class="v">Bug reports, feedback, feature requests</div>
+          </div>
+
+          <details>
+            <summary>How to send feedback</summary>
+            <p>
+              Email is perfect. If you can, describe what would make the app more useful for you.
+              I review all suggestions and prioritize the most impactful improvements.
+            </p>
+          </details>
+        </div>
+      </aside>
+    </section>
+
+    <section class="card" style="margin-top:16px">
+      <div class="hd">
+        <h2>FAQ</h2>
+        <span class="tag">Quick answers</span>
+      </div>
+      <div class="bd">
+        <details>
+          <summary>Is there a subscription or in-app purchase?</summary>
+          <p>
+            Not yet. At the moment, there are no paid features or subscriptions.
+            In the future, monetization may be added to support development (details will be clearly shown in the app and store listing).
+          </p>
+        </details>
+        <details>
+          <summary>Can you delete my data?</summary>
+          <p>
+            There is no account system and no server-side user data. If anything is stored, it’s local to your device.
+          </p>
+        </details>
+        <details>
+          <summary>Where can I see what’s new?</summary>
+          <p>
+            Updates are published through the App Store release notes. You can also email me to ask what’s planned next.
+          </p>
+        </details>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Sashenkov Semen • Tiger Coin Quest • Support page
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
