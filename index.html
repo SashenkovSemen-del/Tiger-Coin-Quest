@@ -1,0 +1,439 @@
+<!-- marketing.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="dark light" />
+  <meta name="description" content="Tiger Coin Quest — a transparent, privacy-first app by indie developer Sashenkov Semen." />
+  <title>Tiger Coin Quest — Official Page</title>
+
+  <style>
+    :root{
+      --bg0:#060713;
+      --bg1:#07122A;
+      --ink:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.72);
+      --line:rgba(255,255,255,.14);
+      --glass:rgba(255,255,255,.06);
+      --glass2:rgba(255,255,255,.10);
+      --violet:#7C3AED;
+      --cyan:#22D3EE;
+      --amber:#F59E0B;
+      --green:#34D399;
+      --radius:24px;
+      --max:1100px;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      --shadow: 0 28px 90px rgba(0,0,0,.50);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--ink);
+      background:
+        radial-gradient(1100px 700px at 10% -10%, rgba(124,58,237,.30), transparent 58%),
+        radial-gradient(900px 650px at 105% 25%, rgba(34,211,238,.20), transparent 55%),
+        radial-gradient(900px 650px at 25% 120%, rgba(245,158,11,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
+    }
+
+    /* floating shapes for uniqueness */
+    .orb{
+      position:fixed;
+      border-radius:999px;
+      filter: blur(18px);
+      opacity:.22;
+      pointer-events:none;
+      transform: translateZ(0);
+      animation: float 12s ease-in-out infinite;
+    }
+    .orb.one{ width:320px; height:320px; left:-120px; top:80px; background:rgba(124,58,237,.95); animation-duration: 14s;}
+    .orb.two{ width:260px; height:260px; right:-120px; top:260px; background:rgba(34,211,238,.95); animation-duration: 16s;}
+    .orb.three{ width:220px; height:220px; left:20%; bottom:-120px; background:rgba(245,158,11,.95); animation-duration: 18s;}
+    @keyframes float{
+      0%,100%{ transform: translate3d(0,0,0) }
+      50%{ transform: translate3d(0,-18px,0) }
+    }
+
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(6,7,19,.78), rgba(6,7,19,.32));
+      border-bottom:1px solid rgba(255,255,255,.10);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width:0;
+    }
+    .logo{
+      width:44px; height:44px; border-radius:18px;
+      background:
+        radial-gradient(18px 18px at 30% 30%, rgba(255,255,255,.52), transparent 60%),
+        linear-gradient(135deg, rgba(245,158,11,.85), rgba(124,58,237,.80));
+      border:1px solid rgba(255,255,255,.14);
+      box-shadow: 0 14px 52px rgba(245,158,11,.12);
+      position:relative;
+      overflow:hidden;
+    }
+    .logo:after{
+      content:"";
+      position:absolute; inset:-35%;
+      background: conic-gradient(from 120deg, rgba(34,211,238,.24), transparent 25%, rgba(255,255,255,.14), transparent 55%, rgba(124,58,237,.22));
+      animation: spin 11s linear infinite;
+      opacity:.85;
+    }
+    @keyframes spin{to{transform:rotate(360deg)}}
+
+    .brand .name{
+      margin:0;
+      font-size:14px;
+      letter-spacing:.25px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .brand .dev{
+      margin-top:2px;
+      font-size:12px;
+      color:var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+
+    .links{
+      display:flex; gap:10px; align-items:center; flex-wrap:wrap;
+    }
+    .link{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:10px 12px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.16);
+      background:rgba(255,255,255,.05);
+      color:rgba(255,255,255,.88);
+      text-decoration:none;
+      font-weight:700;
+      letter-spacing:.15px;
+      transition: transform .15s ease, border-color .15s ease;
+    }
+    .link:hover{ transform: translateY(-1px); border-color: rgba(255,255,255,.28); }
+    .link.primary{
+      background: linear-gradient(135deg, rgba(34,211,238,.18), rgba(124,58,237,.18));
+    }
+
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:26px 18px 52px;
+    }
+
+    .hero{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.03));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(560px 280px at 0% 0%, rgba(124,58,237,.26), transparent 60%),
+        radial-gradient(560px 300px at 100% 20%, rgba(34,211,238,.18), transparent 60%),
+        radial-gradient(560px 280px at 25% 110%, rgba(245,158,11,.12), transparent 60%);
+      opacity:.95;
+      pointer-events:none;
+    }
+    .hero-inner{
+      position:relative;
+      padding:22px 18px;
+      display:grid;
+      gap:16px;
+    }
+    @media(min-width: 900px){
+      .hero-inner{ grid-template-columns: 1.25fr .75fr; align-items:stretch; }
+    }
+
+    .kicker{
+      font-family:var(--mono);
+      font-size:12px;
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.72);
+    }
+    .title{
+      margin:10px 0 8px;
+      font-size: clamp(30px, 5vw, 52px);
+      line-height:1.02;
+      letter-spacing:-.03em;
+    }
+    .lead{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:16px;
+      max-width:75ch;
+    }
+
+    .panel{
+      border-radius:22px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.04);
+      padding:14px 14px;
+      height:100%;
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+    }
+    .panel .line{
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:16px;
+      padding:12px 12px;
+      background:rgba(255,255,255,.03);
+    }
+    .panel .k{
+      font-family:var(--mono);
+      font-size:11px;
+      letter-spacing:.16em;
+      text-transform:uppercase;
+      color:rgba(255,255,255,.60);
+    }
+    .panel .v{
+      margin-top:6px;
+      color:rgba(255,255,255,.88);
+      overflow-wrap:anywhere;
+      font-size:14px;
+    }
+
+    .grid{
+      margin-top:16px;
+      display:grid;
+      gap:16px;
+      grid-template-columns: 1fr;
+    }
+    @media(min-width: 900px){
+      .grid{ grid-template-columns: repeat(3, 1fr); }
+    }
+
+    .card{
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.03));
+      box-shadow: 0 18px 64px rgba(0,0,0,.32);
+      overflow:hidden;
+      position:relative;
+    }
+    .card .hd{
+      padding:16px 16px 12px;
+      border-bottom:1px solid rgba(255,255,255,.10);
+      display:flex; justify-content:space-between; align-items:flex-start; gap:10px;
+    }
+    .card h2{
+      margin:0;
+      font-size:16px;
+      letter-spacing:.2px;
+    }
+    .badge{
+      font-family:var(--mono);
+      font-size:12px;
+      padding:6px 10px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:rgba(255,255,255,.80);
+      white-space:nowrap;
+    }
+    .card .bd{
+      padding:14px 16px 16px;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+    }
+
+    .callout{
+      margin-top:16px;
+      border-radius:var(--radius);
+      border:1px solid rgba(255,255,255,.12);
+      background:
+        radial-gradient(420px 220px at 15% 15%, rgba(34,211,238,.16), transparent 60%),
+        radial-gradient(420px 220px at 85% 25%, rgba(124,58,237,.18), transparent 60%),
+        rgba(255,255,255,.04);
+      padding:16px 16px;
+      box-shadow: 0 18px 64px rgba(0,0,0,.28);
+    }
+    .callout h3{
+      margin:0 0 6px;
+      font-size:16px;
+      letter-spacing:.15px;
+    }
+    .callout p{
+      margin:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:14px;
+      max-width:85ch;
+    }
+
+    a{ color:rgba(34,211,238,.98); text-decoration:none }
+    a:hover{ text-decoration:underline }
+
+    footer{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:18px 18px 30px;
+      color:rgba(255,255,255,.55);
+      font-size:12px;
+      line-height:1.5;
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      justify-content:space-between;
+      align-items:center;
+    }
+    .fine{
+      font-family:var(--mono);
+      opacity:.85;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="orb one" aria-hidden="true"></div>
+  <div class="orb two" aria-hidden="true"></div>
+  <div class="orb three" aria-hidden="true"></div>
+
+  <header>
+    <div class="nav">
+      <div class="brand" aria-label="App and developer">
+        <div class="logo" aria-hidden="true"></div>
+        <div style="min-width:0">
+          <div class="name">Tiger Coin Quest</div>
+          <div class="dev">Indie Developer: Sashenkov Semen</div>
+        </div>
+      </div>
+
+      <div class="links" aria-label="Page links">
+        <a class="link" href="./privacy.html">Privacy</a>
+        <a class="link" href="./support.html">Support</a>
+        <a class="link primary" href="mailto:SashenkovSemen@icloud.com?subject=Tiger%20Coin%20Quest%20%7C%20Hello">Contact</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="kicker">Official marketing page</div>
+          <h1 class="title">Tiger Coin Quest</h1>
+          <p class="lead">
+            A transparent, privacy-first app built by an indie developer.
+            I’m actively improving the product and focusing on delivering value to users — with clear communication and honest plans.
+          </p>
+
+          <div class="callout" style="margin-top:14px">
+            <h3>Transparency note</h3>
+            <p>
+              This page is made for both users and App Store reviewers: it shows who the developer is, how to reach me,
+              and what the app does (including future monetization plans).
+            </p>
+          </div>
+        </div>
+
+        <aside class="panel" aria-label="Developer and app info">
+          <div class="line">
+            <div class="k">Developer</div>
+            <div class="v">Sashenkov Semen</div>
+          </div>
+          <div class="line">
+            <div class="k">Support email</div>
+            <div class="v"><a href="mailto:SashenkovSemen@icloud.com">SashenkovSemen@icloud.com</a></div>
+          </div>
+          <div class="line">
+            <div class="k">Privacy</div>
+            <div class="v">No data collected • No tracking • No sharing</div>
+          </div>
+          <div class="line">
+            <div class="k">Monetization</div>
+            <div class="v">No paid features yet (future plans are disclosed below)</div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Highlights">
+      <article class="card">
+        <div class="hd">
+          <h2>What you can expect</h2>
+          <span class="badge">Value-first</span>
+        </div>
+        <div class="bd">
+          <ul style="margin:0; padding-left:18px">
+            <li>Clear behavior and predictable UX</li>
+            <li>Privacy by design — no tracking and no data collection</li>
+            <li>Continuous improvements based on feedback</li>
+          </ul>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="hd">
+          <h2>Indie developer statement</h2>
+          <span class="badge">Honest</span>
+        </div>
+        <div class="bd">
+          I’m a beginner developer, but I’m working hard to make Tiger Coin Quest better with each update.
+          I read feedback, fix issues, and add improvements as the project grows.
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="hd">
+          <h2>Monetization plans</h2>
+          <span class="badge">Future</span>
+        </div>
+        <div class="bd">
+          Currently, the app has <strong>no subscriptions</strong> and <strong>no paid functions</strong>.
+          In the future, paid features or subscriptions may be introduced to support development and create sustainable income.
+          Any monetization will be clearly described in the App Store listing and inside the app.
+        </div>
+      </article>
+    </section>
+
+    <section class="callout" aria-label="Privacy and contact" style="margin-top:16px">
+      <h3>Privacy & support</h3>
+      <p>
+        Tiger Coin Quest does not collect, store, or transmit user data.
+        If you have questions, suggestions, or issues, email me anytime:
+        <a href="mailto:SashenkovSemen@icloud.com">SashenkovSemen@icloud.com</a>.
+        You can also read the full <a href="./privacy.html">Privacy Policy</a> or open the <a href="./support.html">Support</a> page.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <div>© <span id="year"></span> Sashenkov Semen • Tiger Coin Quest</div>
+    <div class="fine">Built for clarity • Mobile-friendly • Reviewer-ready</div>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
